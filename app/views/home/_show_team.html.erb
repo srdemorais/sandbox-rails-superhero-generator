@@ -1,0 +1,38 @@
+ <% @team_number.times do %>
+    <div class="row">
+      <div class="col-md-4">
+        <% @rand_num = rand(1..1000) %> 
+        <% @set = "set" + rand(1..2).to_s %>
+        <% @background = "bg2" %>
+        <% @avatar = Faker::Avatar.image(slug: @rand_num, size: "300x300", format: "png", set: @set, bgset: @background) %>
+        <img src="<%= @avatar %>">
+      </div>
+      <div class="col-md-4">
+        <h3>
+          Your superhero name is:<br/>
+          <span class="red"><%= Faker::Superhero.name %></span>
+        </h3>
+        <h3>
+          Your superhero power is:<br/>
+          <span class="red"><%= Faker::Superhero.power %></span>
+        </h3>
+        <br/>
+        <h4>
+          Your undercover day job is:<br/>
+          <span class="corp_red"><%= Faker::Company.profession.titleize %></span>
+        </h4>
+        <h4>
+          Your corporate super power is:<br/>
+          <span class="corp_red"><%= Faker::Company.bs.titleize %></span>
+        </h4>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col=md-12">
+        <hr/>
+      </div>
+    </div>
+<% end %>
